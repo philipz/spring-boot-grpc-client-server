@@ -1,5 +1,7 @@
 # spring-boot-grpc-client-server
 
+Refer: [Spring Boot CDS](https://spring.io/blog/2024/08/29/spring-boot-cds-support-and-project-leyden-anticipation)
+
 This project aims to create two [`Spring Boot`](https://docs.spring.io/spring-boot/index.html) applications using [`gRPC`](https://grpc.io/): `movie-grpc-server` and `movie-grpc-client`. The `movie-grpc-lib` project defines the `gRPC` interface that both applications use.
 
 ## Proof-of-Concepts & Articles

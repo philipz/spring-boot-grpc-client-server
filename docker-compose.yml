@@ -1,0 +1,24 @@
+services:
+  postgresql:
+    image: postgres:16-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=moviesdb
+      - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U $${POSTGRES_USER}
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  camunda:
+    image: movie-grpc-server:0.0.1-SNAPSHOT
+    ports:
+      - 9090:9090
+    depends_on:
+      - postgresql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/moviesdb
